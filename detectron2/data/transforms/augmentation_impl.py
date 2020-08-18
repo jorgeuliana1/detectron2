@@ -92,7 +92,8 @@ class RandomFlip(Augmentation):
 
     def get_transform(self, img):
         h, w = img.shape[:2]
-        do = self._rand_range() < self.prob
+        # do = self._rand_range() < self.prob # original implementation
+        do = False # No flip!
         if do:
             if self.horizontal:
                 return HFlipTransform(w)
